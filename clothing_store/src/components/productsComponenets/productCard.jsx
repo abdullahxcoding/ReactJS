@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
                 <div className="flex gap-2">
                     <button onClick={() => {
                         addToCart(product)
-                    }} className="flex-1 bg-green-600 text-white rounded-lg py-2 text-sm font-medium">
+                    }} className="flex-1 bg-green-600 text-white rounded-lg py-2 text-sm font-medium cursor-pointer hover:scale-105 transition-transform duration-200 active:bg-green-700">
                         Add to cart
                     </button>
 

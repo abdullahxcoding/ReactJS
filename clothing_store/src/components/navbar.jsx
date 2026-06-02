@@ -5,7 +5,7 @@ import { useUser } from '../context/UserProvider'
 import { useCart } from '../context/CartProvider'
 
 const Navbar = () => {
-    const { user } = useUser()
+    const { user, LogOut } = useUser()
     const { cart } = useCart()
     return (
         <div className='flex items-center justify-between px-8 py-4 bg-teal-700 text-white'>

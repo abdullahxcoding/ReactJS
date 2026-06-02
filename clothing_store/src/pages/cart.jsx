@@ -14,7 +14,7 @@ const Cart = () => {
         if (promo.toUpperCase() === 'SAVE10') setDiscount(subtotal * 0.1)
     }
 
-    if (cart.length === 0) return (
+    if (!cart || cart.length === 0) return (
         <div className="min-h-screen bg-[#0f1923] flex items-center justify-center">
             <div className="text-center">
                 <p className="text-6xl mb-4">🛒</p>
@@ -42,7 +42,7 @@ const Cart = () => {
                                 <p className="text-white text-sm font-medium mb-2 truncate">{p.name}</p>
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-2 py-1">
-                                        <button onClick={() => updateQuantity(p.id, p.qty - 1)} className="text-white/40 hover:text-teal-400 transition-colors text-sm">−</button>
+                                        <button onClick={() => updateQuantity(p.id, p.qty - 1)} className="text-white/40 hover:text-teal-400 transition-colors text-sm">-</button>
                                         <span className="text-white text-sm w-4 text-center">{p.qty}</span>
                                         <button onClick={() => updateQuantity(p.id, p.qty + 1)} className="text-white/40 hover:text-teal-400 transition-colors text-sm">+</button>
                                     </div>

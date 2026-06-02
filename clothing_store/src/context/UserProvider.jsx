@@ -54,7 +54,9 @@ const UserProvider = ({ children }) => {
             setloading(false)
         }
     }
-    const logout = () => { }
+    const logout = () => {
+        localStorage.clear()
+    }
 
     return (
         <UserContext.Provider value={{ user, loading, setloading, setUser, login, register, logout }}>
