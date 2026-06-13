@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getData } from '../../utils/localStorage'
 
 const priorities = ['Low', 'Medium', 'High']
 const categories = ['Design', 'Development', 'QA', 'DevOps', 'Research']
@@ -72,6 +73,7 @@ const CreateTask = () => {
                 setEmployee('')
                 setDate('')
                 setPriority('')
+                getData()
             }}>
                 <div className="grid grid-cols-2 gap-5">
 
