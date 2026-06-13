@@ -39,14 +39,14 @@ const ListTask = () => {
     return (
         <div className="min-h-screen bg-gray-950 p-8">
 
-            {/* Header */}
+
             <div className="flex items-center justify-between mb-6">
                 <div>
                     <h1 className="text-white font-bold text-xl">All Tasks</h1>
                     <p className="text-white/35 text-xs mt-0.5">{filtered.length} task{filtered.length !== 1 ? 's' : ''} found</p>
                 </div>
 
-                {/* Filter pills */}
+
                 <div className="flex gap-2">
                     {filters.map(f => (
                         <button
@@ -62,19 +62,18 @@ const ListTask = () => {
                 </div>
             </div>
 
-            {/* Task Cards */}
+
             <div className="flex flex-col gap-3">
                 {filtered.map(task => (
                     <div
                         key={task.id}
                         className="group w-full bg-slate-900/80 border border-white/[0.07] hover:border-emerald-500/25 rounded-xl px-5 py-4 flex items-start gap-4 transition-all duration-200 hover:bg-slate-900"
                     >
-                        {/* Priority dot */}
+
                         <div className="pt-1.5 shrink-0">
                             <div className={`w-2 h-2 rounded-full ${priorityDot[task.priority]}`} />
                         </div>
 
-                        {/* Main content */}
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
                                 <h2 className="text-white font-semibold text-sm truncate">{task.title}</h2>
@@ -86,7 +85,7 @@ const ListTask = () => {
                             <p className="text-white/25 text-[11px] mt-1.5">Assigned to <span className="text-white/45">{task.assignee}</span></p>
                         </div>
 
-                        {/* Status badge */}
+
                         <div className="shrink-0">
                             <span className={`text-[11px] font-medium px-2.5 py-1 rounded-full border ${statusStyles[task.status]}`}>
                                 {task.status}
