@@ -3,6 +3,10 @@ import CustomButton from '../custom/customButton'
 import TopCard from '../custom/TopCard'
 import TaskCard from '../custom/TaskCard'
 import Header from '../custom/Header'
+import NewTask from '../TaskList/NewTask'
+import CompleteTask from '../TaskList/CompleteTask'
+import FailedTask from '../TaskList/FailedTask'
+import AcceptTask from '../TaskList/AcceptTask'
 const EmployeeDashboad = ({ credentials }) => {
     console.log(credentials.tasks)
     return (
@@ -16,8 +20,8 @@ const EmployeeDashboad = ({ credentials }) => {
             </div>
 
             <div id='taskList'
-                className='h-[50%] flex flex-nowrap gap-4 overflow-auto justify-start items-center p-5 mt-6 mx-2'>
-                {credentials.tasks.map((task, index) => <TaskCard taskData={credentials.tasks[index]} />)}
+                className='h-[300px] flex flex-nowrap gap-4 overflow-auto justify-start items-center p-5 mt-6 mx-2'>
+                {credentials.tasks.map((task, index) => { return task.newTask ? <NewTask taskData={task} /> : task.completed ? <CompleteTask taskData={task} /> : task.failed ? <FailedTask taskData={task} /> : <AcceptTask taskData={task} /> })}
 
 
             </div>
