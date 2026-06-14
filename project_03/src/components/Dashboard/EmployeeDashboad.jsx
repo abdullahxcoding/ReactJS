@@ -3,10 +3,11 @@ import CustomButton from '../custom/customButton'
 import TopCard from '../custom/TopCard'
 import TaskCard from '../custom/TaskCard'
 import Header from '../custom/Header'
-const EmployeeDashboad = () => {
+const EmployeeDashboad = ({ credentials }) => {
+
     return (
         <div className='min-h-screen w-full bg-gray-950'>
-            <Header />
+            <Header data={credentials} />
             <div className='flex max-xl:flex-wrap  gap-3 justify-center px-4'>
                 <TopCard className="bg-amber-300" count={3} title="New Tasks" />
                 <TopCard className="bg-emerald-300" count={3} title="New Tasks" />

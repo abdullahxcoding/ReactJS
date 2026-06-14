@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import CustomButton from '../custom/customButton'
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
     const [showPassword, setShowPassword] = useState(false)
     const [focused, setFocused] = useState(null)
     const [email, setEmail] = useState('')
@@ -10,7 +10,7 @@ const Login = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        console.log(email, password)
+        handleLogin(email, password)
         setEmail('')
         setPassword('')
     }
