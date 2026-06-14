@@ -8,7 +8,7 @@ import CompleteTask from '../TaskList/CompleteTask'
 import FailedTask from '../TaskList/FailedTask'
 import AcceptTask from '../TaskList/AcceptTask'
 const EmployeeDashboad = ({ credentials }) => {
-    console.log(credentials.tasks)
+
     return (
         <div className='min-h-screen w-full bg-gray-950'>
             <Header data={credentials} />
@@ -21,7 +21,7 @@ const EmployeeDashboad = ({ credentials }) => {
 
             <div id='taskList'
                 className='h-[300px] flex flex-nowrap gap-4 overflow-auto justify-start items-center p-5 mt-6 mx-2'>
-                {credentials.tasks.map((task, index) => { return task.newTask ? <NewTask taskData={task} /> : task.completed ? <CompleteTask taskData={task} /> : task.failed ? <FailedTask taskData={task} /> : <AcceptTask taskData={task} /> })}
+                {credentials.tasks.map((task, index) => { return task.newTask ? <NewTask taskData={task} key={index} /> : task.completed ? <CompleteTask taskData={task} key={index} /> : task.failed ? <FailedTask taskData={task} key={index} /> : <AcceptTask taskData={task} key={index} /> })}
 
 
             </div>

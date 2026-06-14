@@ -24,12 +24,12 @@ const App = () => {
       if (employee) {
         setUser('employee')
         setLoggedinUserData(employee)
-        localStorage.setItem('loggedinUser', JSON.stringify({ role: "employee" }))
+        localStorage.setItem('loggedinUser', JSON.stringify({ role: "employee", data: employee }))
       } else if (admin) {
 
         setUser('admin')
         setLoggedinUserData(admin)
-        localStorage.setItem('loggedinUser', JSON.stringify({ role: "admin" }))
+        localStorage.setItem('loggedinUser', JSON.stringify({ role: "admin", data: admin }))
       } else {
         alert('invalid credentials')
       }
@@ -37,14 +37,15 @@ const App = () => {
     }
   }
 
-  // useEffect(() => {
-  //   if (Authdata) {
-  //     const loggedinUser = localStorage.getItem('loggedinUser')
-  //     if (loggedinUser) {
-  //       setUser(loggedinUser.role)
-  //     }
-  //   }
-  // }, [Authdata])
+  useEffect(() => {
+    const loggedinUser = localStorage.getItem('loggedinUser')
+
+    if (loggedinUser) {
+      const userData = JSON.parse(loggedinUser)
+      setUser(userData.role)
+      setLoggedinUserData(userData.data)
+    }
+  }, [])
 
 
   return (
