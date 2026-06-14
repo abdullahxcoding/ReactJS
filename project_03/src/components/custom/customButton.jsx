@@ -3,6 +3,7 @@ import React from 'react'
 const CustomButton = (props) => {
     return (
         <button
+            onClick={props.handleClick}
 
             className="w-full text-sm font-semibold text-white mt-3"
             style={{
