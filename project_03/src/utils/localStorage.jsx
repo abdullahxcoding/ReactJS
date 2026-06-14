@@ -4,6 +4,12 @@ const employees = [
         name: "Ali Khan",
         email: "employee1@example.com",
         password: "12345",
+        taskCounts: {
+            active: 2,
+            newtask: 1,
+            completed: 1,
+            failed: 0
+        },
         tasks: [
             {
                 active: true,
@@ -43,6 +49,12 @@ const employees = [
         name: "Ahmed Raza ",
         email: "employee2@example.com",
         password: "12345",
+        taskCounts: {
+            active: 2,
+            newtask: 1,
+            completed: 1,
+            failed: 1
+        },
         tasks: [
             {
                 active: true,
@@ -92,6 +104,12 @@ const employees = [
         name: "Ali Sultan",
         email: "employee3@example.com",
         password: "12345",
+        taskCounts: {
+            active: 2,
+            newtask: 1,
+            completed: 1,
+            failed: 0
+        },
         tasks: [
             {
                 active: true,
@@ -131,6 +149,12 @@ const employees = [
         name: "Neeraj Lohana",
         email: "employee4@example.com",
         password: "12345",
+        taskCounts: {
+            active: 2,
+            newtask: 1,
+            completed: 1,
+            failed: 1
+        },
         tasks: [
             {
                 active: true,
@@ -167,6 +191,7 @@ const employees = [
                 newTask: false,
                 completed: false,
                 failed: false,
+                priority: "low",
                 title: "Performance Audit",
                 description: "Measure application load times.",
                 date: "2026-06-22",
@@ -180,11 +205,18 @@ const employees = [
         name: "Mustafa Akhlaq",
         email: "employee5@example.com",
         password: "12345",
+        taskCounts: {
+            active: 2,
+            newtask: 1,
+            completed: 1,
+            failed: 1
+        },
         tasks: [
             {
                 active: true,
                 newTask: true,
                 completed: false,
+                priority: "high",
                 failed: false,
                 title: "Prepare Presentation",
                 description: "Create slides for project demo.",
@@ -196,6 +228,7 @@ const employees = [
                 newTask: false,
                 completed: true,
                 failed: false,
+                priority: "low",
                 title: "Client Meeting",
                 description: "Discuss project requirements.",
                 date: "2026-06-14",
@@ -206,6 +239,7 @@ const employees = [
                 newTask: false,
                 completed: false,
                 failed: false,
+                priority: "medium",
                 title: "Sprint Planning",
                 description: "Plan tasks for next sprint.",
                 date: "2026-06-23",
@@ -216,6 +250,7 @@ const employees = [
                 newTask: false,
                 completed: false,
                 failed: true,
+                priority: "low",
                 title: "Vendor Coordination",
                 description: "Coordinate with third-party vendor.",
                 date: "2026-06-07",
