@@ -7,14 +7,14 @@ const AuthProvider = ({ children }) => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        const userdata = getData()
-        setData(userdata)
+        const { employees, admin } = getData()
+        setData({ employees, admin })
 
     }, [])
 
     return (
         <div>
-            <AuthContext.Provider value={data}>
+            <AuthContext.Provider value={[data, setData]}>
                 {children}
             </AuthContext.Provider>
         </div>

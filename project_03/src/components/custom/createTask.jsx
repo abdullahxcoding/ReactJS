@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { getData } from '../../utils/localStorage'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../../context/AuthProvider'
+// import { getData } from '../../utils/localStorage'
 
 const priorities = ['Low', 'Medium', 'High']
 const categories = ['Design', 'Development', 'QA', 'DevOps', 'Research']
@@ -48,6 +49,8 @@ const CreateTask = () => {
     const [description, setDescription] = useState('')
     const [newtask, setNewTask] = useState({})
 
+    const [data, setData] = useContext(AuthContext)
+
     return (
 
         <div className=" w-full max-w-5xl mx-auto bg-slate-900/95 border border-emerald-500/20 rounded-2xl p-9 shadow-2xl">
@@ -68,7 +71,8 @@ const CreateTask = () => {
             <form onSubmit={(e) => {
                 e.preventDefault();
 
-                setNewTask({
+                // ✅ create it as a local variable
+                const newTaskData = {
                     title,
                     description,
                     category,
@@ -78,28 +82,26 @@ const CreateTask = () => {
                     newTask: true,
                     failed: false,
                     completed: false
+                }
+
+                setNewTask(newTaskData) // optional, if you need it in state elsewhere
+
+                const employees = JSON.parse(localStorage.getItem('employees'))
+                employees.forEach((element) => {
+                    if (element.name === employee) {
+                        element.tasks.push(newTaskData)
+                        element.taskCounts.newtask = element.taskCounts.newtask + 1
+                    }
                 })
 
-                const data = JSON.parse(localStorage.getItem('employees'))
-                data.forEach((element) => {
-                    if (element.name === employee) {
-                        element.tasks.push(newtask)
-                        console.log(element)
-                    }
-
-                });
-
-                localStorage.setItem('employees', JSON.stringify(data))
-
+                localStorage.setItem('employees', JSON.stringify(employees))
+                setData({ employees, admin: data.admin })
                 setTitle('')
                 setCategory('')
                 setDescription('')
                 setEmployee('')
                 setDate('')
                 setPriority('')
-                // getData()
-
-
             }}>
                 <div className="grid grid-cols-2 gap-5">
 

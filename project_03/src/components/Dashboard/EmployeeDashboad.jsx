@@ -16,7 +16,7 @@ const EmployeeDashboad = ({ credentials, userdata }) => {
                 <TopCard taskCount={credentials.taskCounts.active} className="bg-amber-300" title="Active Tasks" />
                 <TopCard taskCount={credentials.taskCounts.newtask} className="bg-emerald-300" title="New Tasks" />
                 <TopCard taskCount={credentials.taskCounts.completed} className="bg-blue-300" title="Completed Tasks" />
-                <TopCard taskCount={credentials.taskCounts.failed} className="bg-purple-300" title="Filed Tasks" />
+                <TopCard taskCount={credentials.taskCounts.failed} className="bg-purple-300" title="Failed Tasks" />
             </div>
 
             <div id='taskList'
