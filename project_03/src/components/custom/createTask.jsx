@@ -46,6 +46,7 @@ const CreateTask = () => {
     const [date, setDate] = useState('')
     const [employee, setEmployee] = useState('')
     const [description, setDescription] = useState('')
+    const [newtask, setNewTask] = useState({})
 
     return (
 
@@ -66,14 +67,39 @@ const CreateTask = () => {
 
             <form onSubmit={(e) => {
                 e.preventDefault();
-                // console.log(`title:${title},description:${description},category:${description},date:${date},employee:${employee},priority :${priority}`)
+
+                setNewTask({
+                    title,
+                    description,
+                    category,
+                    date,
+                    priority,
+                    active: false,
+                    newTask: true,
+                    failed: false,
+                    completed: false
+                })
+
+                const data = JSON.parse(localStorage.getItem('employees'))
+                data.forEach((element) => {
+                    if (element.name === employee) {
+                        element.tasks.push(newtask)
+                        console.log(element)
+                    }
+
+                });
+
+                localStorage.setItem('employees', JSON.stringify(data))
+
                 setTitle('')
                 setCategory('')
                 setDescription('')
                 setEmployee('')
                 setDate('')
                 setPriority('')
-                getData()
+                // getData()
+
+
             }}>
                 <div className="grid grid-cols-2 gap-5">
 

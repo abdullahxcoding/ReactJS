@@ -7,11 +7,11 @@ import NewTask from '../TaskList/NewTask'
 import CompleteTask from '../TaskList/CompleteTask'
 import FailedTask from '../TaskList/FailedTask'
 import AcceptTask from '../TaskList/AcceptTask'
-const EmployeeDashboad = ({ credentials }) => {
+const EmployeeDashboad = ({ credentials, userdata }) => {
 
     return (
         <div className='min-h-screen w-full bg-gray-950'>
-            <Header data={credentials} />
+            <Header data={credentials} user={userdata} />
             <div className='flex max-xl:flex-wrap  gap-3 justify-center px-4'>
                 <TopCard taskCount={credentials.taskCounts.active} className="bg-amber-300" title="Active Tasks" />
                 <TopCard taskCount={credentials.taskCounts.newtask} className="bg-emerald-300" title="New Tasks" />

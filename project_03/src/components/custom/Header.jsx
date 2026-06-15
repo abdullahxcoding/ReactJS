@@ -1,10 +1,10 @@
 import React from 'react'
 import CustomButton from './customButton'
-const Header = ({ data }) => {
+const Header = ({ data, user }) => {
     const handleClick = () => {
         console.log("logout")
         localStorage.setItem('loggedinUser', '')
-        window.location.reload()
+        user('')
     }
     return (
         <header className='flex justify-between p-8'>
